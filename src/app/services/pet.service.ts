@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, collectionData, addDoc, doc, updateDoc, deleteDoc } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 
 export interface Pet {
@@ -15,27 +15,25 @@ export interface Pet {
   providedIn: 'root'
 })
 export class PetService {
-  private petsCollection;
+  private collectionName = 'pets';
 
-  constructor(private firestore: Firestore) {
-    this.petsCollection = collection(this.firestore, 'pets');
-  }
+  constructor(private firestore: AngularFirestore) {}
 
   getPets(): Observable<Pet[]> {
-    return collectionData(this.petsCollection, { idField: 'id' }) as Observable<Pet[]>;
+    return this.firestore
+      .collection<Pet>(this.collectionName)
+      .valueChanges({ idField: 'id' });
   }
 
   addPet(pet: Pet) {
-    return addDoc(this.petsCollection, pet);
+    return this.firestore.collection<Pet>(this.collectionName).add(pet);
   }
 
   updatePet(id: string, pet: Pet) {
-    const petDocRef = doc(this.firestore, `pets/${id}`);
-    return updateDoc(petDocRef, { ...pet });
+    return this.firestore.collection(this.collectionName).doc(id).update(pet);
   }
 
   deletePet(id: string) {
-    const petDocRef = doc(this.firestore, `pets/${id}`);
-    return deleteDoc(petDocRef);
+    return this.firestore.collection(this.collectionName).doc(id).delete();
   }
 }

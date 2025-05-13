@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, collectionData, addDoc, doc, updateDoc, deleteDoc } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 
 export interface Cuidador {
@@ -14,25 +14,27 @@ export interface Cuidador {
   providedIn: 'root'
 })
 export class CuidadorService {
-  private cuidadoresCollection = collection(this.firestore, 'cuidadores');
+  private collectionName = 'cuidadores';
 
-  constructor(private firestore: Firestore) {}
+  constructor(private firestore: AngularFirestore) {
+    
+  }
 
   getCuidadores(): Observable<Cuidador[]> {
-    return collectionData(this.cuidadoresCollection, { idField: 'id' }) as Observable<Cuidador[]>;
+    return this.firestore
+      .collection<Cuidador>(this.collectionName)
+      .valueChanges({ idField: 'id' });
   }
 
   addCuidador(cuidador: Cuidador) {
-    return addDoc(this.cuidadoresCollection, cuidador);
+    return this.firestore.collection<Cuidador>(this.collectionName).add(cuidador);
   }
 
   updateCuidador(id: string, cuidador: Cuidador) {
-    const cuidadorDoc = doc(this.firestore, `cuidadores/${id}`);
-    return updateDoc(cuidadorDoc, { ...cuidador });
+    return this.firestore.collection(this.collectionName).doc(id).update(cuidador);
   }
 
   deleteCuidador(id: string) {
-    const cuidadorDoc = doc(this.firestore, `cuidadores/${id}`);
-    return deleteDoc(cuidadorDoc);
+    return this.firestore.collection(this.collectionName).doc(id).delete();
   }
 }
