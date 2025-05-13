@@ -14,7 +14,8 @@ import { PetsPage } from './pets.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    PetsPageRoutingModule
+    PetsPageRoutingModule,
+    PetsPage
   ],
   declarations: [PetsPage]
 })

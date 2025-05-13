@@ -15,9 +15,11 @@ export interface Pet {
   providedIn: 'root'
 })
 export class PetService {
-  private petsCollection = collection(this.firestore, 'pets');
+  private petsCollection;
 
-  constructor(private firestore: Firestore) {}
+  constructor(private firestore: Firestore) {
+    this.petsCollection = collection(this.firestore, 'pets');
+  }
 
   getPets(): Observable<Pet[]> {
     return collectionData(this.petsCollection, { idField: 'id' }) as Observable<Pet[]>;
