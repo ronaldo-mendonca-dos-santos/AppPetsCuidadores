@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ id ? 'Editar' : 'Novo' }} Cuidador</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item><ion-input placeholder="Nome" [(ngModel)]="cuidador.nome"></ion-input></ion-item>
+    <ion-item><ion-input placeholder="Telefone" [(ngModel)]="cuidador.telefone"></ion-input></ion-item>
+    <ion-item><ion-input type="number" placeholder="Experiência (anos)" [(ngModel)]="cuidador.experiencia"></ion-input></ion-item>
+    <ion-item><ion-textarea placeholder="Especialidades" [(ngModel)]="cuidador.especialidades"></ion-textarea></ion-item>
+  </ion-list>
+  <ion-button expand="full" (click)="salvarCuidador()">Salvar</ion-button>
+</ion-content>

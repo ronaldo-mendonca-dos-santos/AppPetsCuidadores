@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ id ? 'Editar' : 'Novo' }} Pet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item><ion-input placeholder="Nome" [(ngModel)]="pet.nome"></ion-input></ion-item>
+    <ion-item><ion-input placeholder="Espécie" [(ngModel)]="pet.especie"></ion-input></ion-item>
+    <ion-item><ion-input placeholder="Raça" [(ngModel)]="pet.raca"></ion-input></ion-item>
+    <ion-item><ion-input placeholder="Idade" type="number" [(ngModel)]="pet.idade"></ion-input></ion-item>
+    <ion-item><ion-textarea placeholder="Observações" [(ngModel)]="pet.observacoes"></ion-textarea></ion-item>
+  </ion-list>
+  <ion-button expand="full" (click)="salvarPet()">Salvar</ion-button>
+</ion-content>
