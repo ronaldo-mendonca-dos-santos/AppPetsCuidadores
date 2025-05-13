@@ -5,7 +5,9 @@ import { NavController } from '@ionic/angular';
 @Component({
   selector: 'app-pets',
   templateUrl: './pets.page.html',
+  standalone: ​​false
 })
+
 export class PetsPage implements OnInit {
   pets: Pet[] = [];
 

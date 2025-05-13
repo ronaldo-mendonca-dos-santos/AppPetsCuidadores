@@ -13,8 +13,7 @@ import { PetFormPage } from './pet-form.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    PetFormPageRoutingModule,
-    PetFormPage
+    PetFormPageRoutingModule
   ],
   declarations: [PetFormPage]
 })

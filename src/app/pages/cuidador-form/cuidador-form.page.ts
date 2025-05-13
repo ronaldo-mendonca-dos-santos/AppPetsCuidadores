@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'; 
+import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { Cuidador, CuidadorService } from 'src/app/services/cuidador.service';
 
 @Component({
   selector: 'app-cuidador-form',
   templateUrl: './cuidador-form.page.html',
+  standalone: ​​false
 })
 export class CuidadorFormPage implements OnInit {
   cuidador: Cuidador = {

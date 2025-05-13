@@ -5,6 +5,7 @@ import { NavController } from '@ionic/angular';
 @Component({
   selector: 'app-cuidadores',
   templateUrl: './cuidadores.page.html',
+  standalone: ​​false
 })
 export class CuidadoresPage implements OnInit {
   cuidadores: Cuidador[] = [];

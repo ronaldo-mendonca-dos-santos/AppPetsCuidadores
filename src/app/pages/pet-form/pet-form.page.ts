@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'; 
+import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { Pet, PetService } from 'src/app/services/pet.service';
 
 @Component({
   selector: 'app-pet-form',
   templateUrl: './pet-form.page.html',
+  standalone: ​​false
 })
 export class PetFormPage implements OnInit {
   pet: Pet = {

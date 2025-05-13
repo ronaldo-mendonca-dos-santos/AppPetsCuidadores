@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "",
-    authDomain: "..",
-    projectId: "",
-    storageBucket: "..",
-    messagingSenderId: "",
-    appId: "1::web:"
+    apiKey: "AIzaSyD7e1QXmNJB0zZsF0oMubH6oX7nsOq_iu8",
+    authDomain: "apppetscuidadores.firebaseapp.com",
+    projectId: "apppetscuidadores",
+    storageBucket: "apppetscuidadores.firebasestorage.app",
+    messagingSenderId: "442934381617",
+    appId: "1:442934381617:web:f4564c1b2d7cd90f015910"
   }
 
 };
