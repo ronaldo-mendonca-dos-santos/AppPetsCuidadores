@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'entrar',
     pathMatch: 'full'
   },
   {
@@ -27,6 +27,15 @@ const routes: Routes = [
     path: 'cuidadores-detalhes',
     loadChildren: () => import('./paginas/cuidadores-detalhes/cuidadores-detalhes.module').then( m => m.CuidadoresDetalhesPageModule)
   },
+  {
+    path: 'cadastrar',
+    loadChildren: () => import('./paginas/cadastrar/cadastrar.module').then( m => m.CadastrarPageModule)
+  },
+  {
+    path: 'entrar',
+    loadChildren: () => import('./paginas/entrar/entrar.module').then( m => m.EntrarPageModule)
+  },
+
 ];
 
 @NgModule({
