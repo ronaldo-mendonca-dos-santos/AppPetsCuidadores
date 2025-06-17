@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ cuidadoresId ? 'Editar Cuidador' : 'Novo Cuidador' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Nome do Cuidador</ion-label>
+    <ion-input [(ngModel)]="cuidadores.nome"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Telefone</ion-label>
+    <ion-input type="tel" [(ngModel)]="cuidadores.telefone"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Experiência (anos)</ion-label>
+    <ion-input type="number" [(ngModel)]="cuidadores.experiencia"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Especialidades</ion-label>
+    <ion-textarea rows="3" [(ngModel)]="cuidadores.especialidades" placeholder="Ex.: banho, tosa, adestramento"></ion-textarea>
+  </ion-item>
+
+  <ion-button expand="full" (click)="salvar()">Salvar</ion-button>
+  <ion-button expand="full" color="danger" *ngIf="cuidadoresId" (click)="remover()">Excluir</ion-button>
+</ion-content>

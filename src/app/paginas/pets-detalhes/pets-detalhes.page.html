@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ petsId ? 'Editar Pet' : 'Novo Pet' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Nome</ion-label>
+    <ion-input [(ngModel)]="pets.nome"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Espécie (ex.: cachorro, gato)</ion-label>
+    <ion-input [(ngModel)]="pets.especie"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Raça</ion-label>
+    <ion-input [(ngModel)]="pets.raca"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Idade</ion-label>
+    <ion-input type="number" [(ngModel)]="pets.idade"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Observações adicionais</ion-label>
+    <ion-textarea rows="3" [(ngModel)]="pets.observacoes"></ion-textarea>
+  </ion-item>
+
+
+  <!-- <ion-item>
+    <ion-label>Cuidadores</ion-label>
+    <ion-select multiple="true" [(ngModel)]="cuidadoresSelecionados" (ionChange)="selecionarCuidadores($event)">
+      <ion-select-option *ngFor="let cuidadores of cuidadores" [value]="cuidadores.id">{{ cuidadores.nome }}</ion-select-option>
+    </ion-select>
+  </ion-item> -->
+
+  <ion-button expand="full" (click)="salvar()">Salvar</ion-button>
+  <ion-button expand="full" color="danger" *ngIf="petsId" (click)="remover()">Excluir</ion-button>
+</ion-content>
