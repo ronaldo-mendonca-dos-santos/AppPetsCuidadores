@@ -1,2 +1,1 @@
-Este projeto Ionic é um exemplo de como fazer uma relação de documentos no Firebase.
-Aqui temos um cadastro de autores e um cadastro de livros onde deve-se selecionar um ou mais autores cadastrados para armazenar os dados do livro
+Projeto desenvolvido para a aula de mobile da Etec, onde o objetivo é criar um sistema de login e cadastro integrado ao firebase e contando com um CRUD onde é possivel cadastrar, visualizar, editar e excluir itens de Pets e Cuidadores
